@@ -41,7 +41,24 @@ class Greeter {
   }
 }
 
+// TODO: go on
 /* 
   commond line
   tsc decorator.ts --target es5 --experimentalDecorator
 */
+
+class Greeter2 {
+  greeting: string
+  constructor(message: string) {
+    this.greeting = message
+  }
+  @enumerable(false)
+  greet() {
+    return `Hello, ${this.greeting}`
+  }
+}
+function enumerable(value: boolean) {
+  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    descriptor.enumerable = value
+  }
+}
